@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-^c95o21o4ik1-&rof#*k%05%tys@xd%&j@x37lml2u4pqgw4z%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     "rest_framework",
     'APIS.apps.ApisConfig',
-    'customuser.apps.CustomuserConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,9 +122,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_FILES=[os.path.join("static")]
+
+STATIC_ROOT= str(BASE_DIR.joinpath("staticfiles"))
+STATIC_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # TELEGRAM_BOT_TOKEN = '6633548961:AAGlr7mQ7efrFYXlQHm6nZgMLjNSF99bbwI'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-AUTH_USER_MODEL = 'customuser.CustomUser'
+# AUTH_USER_MODEL = 'customuser.CustomUser'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

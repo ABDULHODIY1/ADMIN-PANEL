@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path()
     path("PANTERA_API/V1/",include("APIS.urls")),
-    path("users/V1/",include("customuser.urls")),
 ]
+
